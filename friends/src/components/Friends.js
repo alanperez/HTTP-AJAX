@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from 'prop-types';
 
-const  Friend = props => {
+const  Friends = props => {
     return (
         <div className="friend">
             <h2>{props.friend.name}</h2>
@@ -17,4 +17,4 @@ PropTypes.shape({
     Email: PropTypes.string
   });
 
-export default Friend;
+export default Friends;

@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Friend from './components/Friend';
-import FriendForm from './components/FriendForm';
-import './app.css';
+import Friends from './components/Friends';
+import FriendsForm from './components/FriendsForm';
+// import './app.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -41,7 +40,7 @@ class App extends React.Component {
         // }
         postFriend = () => {
                 axios
-                .post(`http://localhost:5000/friends`, Friend)
+                .post(`http://localhost:5000/friends`, Friends)
                 .then(response => {
             console.log(response);
             this.setState({
@@ -74,14 +73,17 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="ui raised very padded text container segment">
           <h1>Friends</h1>
         <div className='friends'>
-          {this.state.friends.map((friend, id) => <Friend friend={friend} key={id} />)}
-          <FriendForm 
-          handleChanges={this.handleChanges}
-          newFriend={this.addFriend}
-          friend={this.state.friend}/>
+          {this.state.friends.map((friend, id) => <Friends friend={friend} key={id} />)}
+          <div className="ui container" style={{marginTop:'20px'}}>
+            <FriendsForm 
+            handleChanges={this.handleChanges}
+            newFriend={this.addFriend}
+            friend={this.state.friend}
+            />
+         </div>
         </div>
             
             </div>
